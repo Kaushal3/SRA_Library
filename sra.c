@@ -110,15 +110,15 @@ unsigned char i,temp[sensor_num];
 
 	for(j=0;j<sensor_num;j++) 
 	 {
-		  max[j]=adc_start(j);
+		  min[j]=adc_start(j);
 		  
 		  for(i=0;i<10;i++)
 		 {
 			  temp[j]=adc_start(j);
 			  
-			  if(temp[j]<max[j])
+			  if(temp[j]<min[j])
 			  {
-			  max[j]=temp[j];
+			  min[j]=temp[j];
 			  }
 			  
 		 }
@@ -135,15 +135,15 @@ void calibrate_white(void)
 	 
 	 for(j=0;j<sensor_num;j++) 
 	 {
-		  min[j]=adc_start(j);
+		  max[j]=adc_start(j);
 		  
 		  for(i=0;i<10;i++)
 		 {
 			  temp[j]=adc_start(j);
 			  
-			 if(temp[j]<min[j])
+			 if(temp[j]>max[j])
 			  {
-			  min[j]=temp[j];
+			  max[j]=temp[j];
 			  }
 		  
 		 }
